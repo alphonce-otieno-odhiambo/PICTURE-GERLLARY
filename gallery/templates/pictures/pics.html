@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block title%} {% endblock%}
+
+
+{% block content %} 
+<div class="container">
+    <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token%}
+    {{form.as_p}}
+    </form>
+
+    {% if obj%}
+
+    <h3>Uploaded successfully: {{img_obj.image_name}}</h3>
+    <img src="{{ obj.image.url}}" alt="image" class="img-thumnail">
+    {% endif %}
+    {% for x in img %}
+    <img src="{{ x.image.url}}" alt="..." class="img-thumnail" height="70%" width="70%">
+    <h2 class="textcenter">{{x.image_name}}</h2>
+    {% endfor%}
+</div>
+
+{% endblock %}
