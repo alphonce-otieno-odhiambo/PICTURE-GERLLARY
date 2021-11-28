@@ -11,3 +11,10 @@ class Picture(models.Model):
     def __str__(self):
         return self.image_name
 
+
+class Cartegories(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
+
