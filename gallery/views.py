@@ -13,14 +13,14 @@ def pictures(request):
         if form.is_valid():
             form.save()
             obj = form.instance
-            return render(request, 'pictures.html', {"obj": obj})
+            return render(request, 'pictures/pics.html', {"obj": obj})
 
     else:
-        form = PictureForm()
+        forms = PictureForm()
         picture = Picture.objects.all()
     
 
-    return render(request, 'pictures/pics.html', {"form":form, "picture":picture})
+    return render(request, 'pictures/pics.html', {"form":forms, "picture":picture})
 
 def formation(request):
     context ={}
