@@ -5,7 +5,9 @@ from .forms import PictureForm
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    images = Picture.objects.all()
+    context = {"images":images}
+    return render(request, 'home.html', context)
 
 def pictures(request):
     if request.method == "POST":
