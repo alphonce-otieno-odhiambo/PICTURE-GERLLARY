@@ -1,5 +1,5 @@
 from django import forms
-from django.db.models import fields
+#from django.db.models import fields
 from .models import Picture
 
 class PictureForm(forms.ModelForm):

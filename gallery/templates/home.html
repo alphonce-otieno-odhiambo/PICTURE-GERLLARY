@@ -25,8 +25,36 @@
                           <h3 style="text-align: center;background-color: aquamarine;">TRAVELING PHOTOS</h3>
                         </div>
                     </div>
-                   
-                    <div class="col-xs-4 col-xs-4 col-xs-4">
+                    <div class="container">
+                        <div class="row">
+                            {% for imgs in images %}
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">{{imgs.image_name}}</div>
+                            {% if imgs.image%}
+                                <div>
+                                    <div >
+                                        <img src="{{ imgs.image.url}}" alt="..." class="img-thumnail" height="110%" width="110%">
+                                    </div>
+                            {% else%}
+                            <div >
+                                <img src="{{ imgs.image.url}}" alt="..." class="img-thumnail" height="110%" width="110%">
+                            </div>
+
+                                        <h2>There is no image </h2>
+                                        
+                                </div>
+                            </div>
+                            {% endif%}
+                            <!-- <img src="..." class="card-img-top" alt="..."> -->
+                            <div class="card-body">
+                                <p class="card-text"><h5 class="card-title"> {{imgs.image_description}} </h5>
+                            </div>
+                            {% endfor %}
+                        </div>
+                            
+                    </div>
+                    </div>
+                    <!-- <div class="col-4">
                         {% for imgs in images %}
                         <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                             <div class="card-header">{{imgs.image_name}}</div>
@@ -34,7 +62,7 @@
                               <h5 class="card-title"> {{imgs.image_description}} </h5>
                               {% if imgs.image%}
                               <div>
-                                    <div class="col-sm-4 "> 
+                                     
 
                                         <img src="{{ imgs.image.url}}" alt="..." class="img-thumnail" height="100%" width="100%">
                               {% else%}
@@ -46,7 +74,7 @@
                             </div>
                         </div>
                         {% endfor %}
-                    </div> 
+                    </div>  -->
                     
                     
                 </div>

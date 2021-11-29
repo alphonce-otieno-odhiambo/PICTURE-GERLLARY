@@ -1,10 +1,14 @@
 from django.shortcuts import render,redirect
 #from django.http  import HttpResponse
-from .models import Picture
+from .models import Picture #category
 from .forms import PictureForm
 
 # Create your views here.
 def home(request):
+    
+    
+        
+    
     images = Picture.objects.all()
     context = {"images":images}
     return render(request, 'home.html', context)
