@@ -1,16 +1,21 @@
 from django.shortcuts import render,redirect
 #from django.http  import HttpResponse
-from .models import Picture #category
+from .models import Category, Picture, Category
 from .forms import PictureForm
 
 # Create your views here.
 def home(request):
-    
-    
-        
-    
+    category = request.GET.get("category")
+    if category is None:
+        categ = Picture.objects.order_by("image_name").filter(image_name='image_name')
+    else:
+        categ = Picture.objects.filter(category = category)
     images = Picture.objects.all()
-    context = {"images":images}
+    categ = Category.objects.all()
+    context = {
+        "images":images,
+        "categ":categ
+        }
     return render(request, 'home.html', context)
 
 def pictures(request):
@@ -19,7 +24,7 @@ def pictures(request):
         if form.is_valid():
             form.save()
             obj = form.instance
-            return render(request, 'pictures/pics.html', {"obj": obj})
+            return render( request,'pictures/pics.html', {"obj": obj})
 
     else:
         forms = PictureForm()
