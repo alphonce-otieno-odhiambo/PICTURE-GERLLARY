@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title%} {% endblock%}
+
+
+
+{% block content %}
+
+    <div class="container">
+    <div class="row">
+        <div class="col-12">
+            {% if searched %}
+
+            <h2>You searched for {{searched}}</h2>
+
+            <br>
+            {% for search in category_search%}
+
+                <a href="{% url 'home'%}?categories={{categories.name}}">{{search}}</a>
+            {% endfor %}
+            {% else%}
+            <h2>you haven't searched Something <h2>
+            {% endif%}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

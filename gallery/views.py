@@ -33,14 +33,14 @@ def pictures(request):
 
     return render(request, 'pictures/pics.html', {"form":forms, "picture":picture})
 
-def formation(request):
-    context ={}
-    if request.method =="POST":
-        image_name =request.POST.get("image_name")
-        image_discription = request.POST.get("image_discription")
-        object_value = Picture.objects.create(image_name=image_name,image_discription=image_discription )
-        context['object'] = object_value 
-        context['created'] = True
+def search(request):
+    if request.method == "POST":
+        searched = request.POST.get('searched')
+        category_search = Category.objects.filter(name__contains=searched)
+        return render (request, 'search.html', {"searched":searched,
+        "category_search":category_search
+        } )
 
-
-    return render (request, 'pictures/pics.html', context =context )
+    else:
+        
+        return render (request, 'search.html', {} )
