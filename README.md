@@ -20,3 +20,13 @@ To get the code..
   ```bash
   git clone https://github.com/alphonce-otieno-odhiambo/PICTUREPERFECT.git
   ```
+
+## Known Bugs
+Deployed link may not be active.
+## Technologies Used
+* [Python3.8](https://www.python.org/)
+* [Django](http://django.pocoo.org/)
+* [Heroku](https://heroku.com)
+## Support and contact details
+Incase of any contributions fork the repo and make any substantial changes.
+Incase of any ideas,suggestions or complaints feel free to connect with me on odhiamboalphonce23@gmail.com
