@@ -5,29 +5,59 @@
 
 
 {% block content%} 
-  <div class="container-fluid">
-      <div class="row">
-            <div class="col-sm-2 border border-10">
-                <ul>
-                    <li>
-                        <a class="dropdown-item" href="#">place</a>
+  <div class="container-fluid bg-light">
+      <div class="row p-2">
+            <div class="col-xl-3 col-lg-4 col-md-12 mb-4 border border-10 d-flex" >
+                <ul class="">
+                    <li class="d-flex align-center">
+                        <a class="dropdown-item" href="#">Location</a>
                         <br>
                         <a class="dropdown-item" href="{% url 'category'%}">category</a>
                         <br>
                         <a class="dropdown-item" href="#">Something</a>
                     </li>
                 </ul>
-            </div>
-            <div class="col-md-10 border ">
+            </div> 
+            <h1 class="text-center">{{ imgs.category }}</h1>
+            {% for imgs in images %}
+            <div class="col-xl-3 col-lg-4 col-md-12 mb-4">
+                <button class="btn btn-primary rounded-pill mb-2"><h5 class="headings text-center text-white">{{ imgs.category }}</h5></button>
+                <div class="bg-white rounded shadow-sm"><img src="{{ imgs.image.url}}" alt="..."
+                    class="img-fluid card-img-top">
+                  <div class="p-4">
+                    <h5 class="headings text-center"> <a data-bs-toggle="modal"
+                        data-bs-target="#modalDisplayImageDetails{{photo.id}}"
+                        class="text-dark text-capitalize modal-click">{{imgs.image_name}}</a></h5>
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <small class="text-muted">
+                          <span class="badge rounded-pill bg-info text-white text-capitalize">{{imgs.image_description}}</span>
+                        </small>
+                      </div>
+                      <div>
+                        <small class="text-muted">
+                          <span class="badge rounded-pill bg-dark text-white text-capitalize"></span>
+                        </small>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+
+
+            <!-- <div class="col-xl-3 col-lg-4 col-md-12 mb-4">
                 <div>
                     <div class="card">
                         <div class="card-body">
-                          <h3 style="text-align: center;background-color: aquamarine;">TRAVELING PHOTOS</h3>
+                          <h3 style="text-align: center;background-color: rgb(80, 118, 245);">SHOE GAME</h3>
                         </div>
                     </div>
                 </div>
                 <div class="container">
-                    <div class="row">
+                    
+                        
 
                             {% for imgs in images %}
                                     
@@ -55,21 +85,12 @@
                             
                             
                             {% endfor %} 
-                    </div>        
+                        </div>    
                             
-                    <!-- <div class="row">
-                        <div class="col-12">
-                            <h1 style="text-align: center;"> CATEGORIES</h1>
-                            {% for categories in categ %}
-                            <ul class="list-group list-group-flush">
-                                <a href=" {% url 'home'%}?categories={{categories.name}} "> {{categories.name}}</a>
-                                
-                              </ul>
-                            {% endfor %}
-                        </div> -->
+
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 {% endblock%}

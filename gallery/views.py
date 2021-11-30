@@ -36,7 +36,7 @@ def pictures(request):
 def search(request):
     if request.method == "POST":
         searched = request.POST.get('searched')
-        category_search = Category.objects.filter(name__contains=searched)
+        category_search = Category.objects.filter(name__icontains=searched)
         return render (request, 'search.html', {"searched":searched,
         "category_search":category_search
         } )
@@ -54,3 +54,16 @@ def categories(request):
     categ = Category.objects.all()
     context = {"categ":categ}
     return render(request, 'category/category.html', context=context)
+
+# def specifics(request):
+#     db_categrys = Category.objects.all()
+#     db_pictures = Picture.objects.all()
+#     if db_categrys is None:
+#         db_categry= request.GET. get(Category)
+#         db_pictures = Picture.filter(db_categry = db_categry)
+
+#     context ={"db_categrs":db_categrys,
+#             "db_pictures":db_pictures,
+#             "db_categry":db_categry
+#     }
+#     return render(request, ' category/category.html', context=context)
