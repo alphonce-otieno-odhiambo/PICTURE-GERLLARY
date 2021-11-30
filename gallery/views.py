@@ -55,6 +55,10 @@ def categories(request):
     context = {"categ":categ}
     return render(request, 'category/category.html', context=context)
 
+
+def beach(request):
+    return render(request, 'category/beach.html')
+
 # def specifics(request):
 #     db_categrys = Category.objects.all()
 #     db_pictures = Picture.objects.all()
