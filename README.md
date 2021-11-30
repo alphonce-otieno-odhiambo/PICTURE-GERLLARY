@@ -13,3 +13,10 @@ https://perfectpicture.herokuapp.com/
 4. Search for different categories of photos. (ie. Travel, Food)
 5. Copy a link to the photo to share with my friends.
 6. View photos based on the location they were taken.
+
+## Setup/Installation Requirements
+To get the code..
+1. Cloning the repository:
+  ```bash
+  git clone https://github.com/alphonce-otieno-odhiambo/PICTUREPERFECT.git
+  ```
