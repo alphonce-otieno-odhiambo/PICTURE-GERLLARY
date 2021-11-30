@@ -18,6 +18,7 @@ from decouple import config,Csv
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import cloudinary_storage
 
 
 MODE=config("MODE", default="dev")
@@ -82,8 +83,15 @@ INSTALLED_APPS = [
 cloudinary.config( 
   cloud_name = "dfjzhunea", 
   api_key = "496876264173179", 
-  api_secret = "2YhR8CrDSWWxTzAaAf-kE5Jpm6o" 
+  api_secret = "2YhR8CrDSWWxTzAaAf-kE5Jpm6o",
+  secure = True
 )
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dfjzhunea',
+    'API_KEY': '496876264173179',
+    'API_SECRET': '2YhR8CrDSWWxTzAaAf-kE5Jpm6o',
+    'SECURE':'True',
+}
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 MIDDLEWARE = [
