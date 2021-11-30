@@ -44,3 +44,13 @@ def search(request):
     else:
         
         return render (request, 'search.html', {} )
+
+def categories(request):
+    category = request.GET.get("category")
+    if category is None:
+        categ = Picture.objects.order_by("image_name").filter(image_name='image_name')
+    else:
+        categ = Picture.objects.filter(category = category)
+    categ = Category.objects.all()
+    context = {"categ":categ}
+    return render(request, 'category/category.html', context=context)
